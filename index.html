@@ -2,410 +2,217 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Your Name — Portfolio</title>
-  <meta name="description" content="Portfolio of Your Name — Frontend Developer & UI Designer building fast, accessible, and beautiful web experiences." />
-  <meta name="theme-color" content="#0f172a" />
-  <meta property="og:title" content="Your Name — Portfolio" />
-  <meta property="og:description" content="Frontend Developer & UI Designer building fast, accessible, and beautiful web experiences." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=1200&auto=format&fit=crop" />
-  <meta property="og:image:alt" content="Laptop on a desk with code" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vaibhav Jadhav | DevOps Engineer</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
-    :root{
-      --bg: #f8fafc;
-      --surface:#ffffff;
-      --text:#0f172a; /* slate-900 */
-      --muted:#475569; /* slate-600 */
-      --border:#e2e8f0; /* slate-200 */
-      --brand:#6366f1; /* indigo-500 */
-      --brand-2:#06b6d4; /* cyan-500 */
-      --shadow:0 10px 30px rgba(2,6,23,.08);
+    /* Reset */
+    * {margin:0; padding:0; box-sizing:border-box;}
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background:#f9fafc;
+      color:#1e293b;
+      line-height:1.6;
     }
-    @media (prefers-color-scheme: dark){
-      :root{
-        --bg:#0b1220; /* slightly bluer slate */
-        --surface:#0f172a;
-        --text:#e5e7eb;
-        --muted:#94a3b8;
-        --border:#1f2937;
-        --shadow:0 10px 30px rgba(0,0,0,.45);
-      }
+
+    header {
+      background:#1e293b;
+      color:#fff;
+      text-align:center;
+      padding:3rem 1rem;
     }
-    [data-theme="dark"]{
-      --bg:#0b1220; --surface:#0f172a; --text:#e5e7eb; --muted:#94a3b8; --border:#1f2937; --shadow:0 10px 30px rgba(0,0,0,.45);
+
+    header h1 {
+      font-size:2.5rem;
+      margin-bottom:0.5rem;
     }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Apple Color Emoji','Segoe UI Emoji';
-      background:var(--bg); color:var(--text);
+
+    header p {
+      font-size:1.2rem;
+      color:#94a3b8;
     }
-    .container{max-width:1100px; margin:0 auto; padding:0 1rem}
-    /* Header */
-    header{
-      position:sticky; top:0; z-index:50; backdrop-filter:saturate(120%) blur(8px);
-      background:color-mix(in oklab, var(--bg) 75%, transparent);
-      border-bottom:1px solid var(--border);
+
+    nav {
+      background:#0f172a;
+      text-align:center;
+      padding:0.8rem;
     }
-    .nav{display:flex; align-items:center; justify-content:space-between; height:64px}
-    .logo{display:flex; gap:.6rem; align-items:center; font-weight:700; letter-spacing:.3px}
-    .logo-badge{width:28px; height:28px; border-radius:8px; background:linear-gradient(135deg, var(--brand), var(--brand-2)); box-shadow:var(--shadow)}
-    nav ul{display:flex; list-style:none; gap:1rem; margin:0; padding:0}
-    nav a{color:var(--muted); text-decoration:none; font-weight:500}
-    nav a:hover, nav a.active{color:var(--text)}
-    .actions{display:flex; align-items:center; gap:.5rem}
-    .btn, button.btn{appearance:none; border:1px solid var(--border); background:var(--surface); color:var(--text); padding:.6rem .9rem; border-radius:.8rem; font-weight:600; cursor:pointer; box-shadow:var(--shadow)}
-    .btn-primary{border:none; background:linear-gradient(135deg, var(--brand), var(--brand-2)); color:white}
-    .theme-toggle{border:1px solid var(--border); background:var(--surface); width:40px; height:40px; border-radius:10px; display:grid; place-items:center}
-    .hamburger{display:none}
 
-    /* Hero */
-    .hero{padding:6rem 0 3rem}
-    .hero-grid{display:grid; grid-template-columns: 1.1fr .9fr; gap:2rem; align-items:center}
-    .eyebrow{display:inline-block; padding:.3rem .6rem; border-radius:.6rem; border:1px solid var(--border); color:var(--muted); margin-bottom:1rem}
-    h1{font-size:clamp(2rem, 5vw, 3.2rem); line-height:1.1; margin:.3rem 0 1rem}
-    .lead{font-size:1.1rem; color:var(--muted); max-width:52ch}
-    .cta{margin-top:1.5rem; display:flex; gap:.8rem; flex-wrap:wrap}
-    .hero-card{background:var(--surface); border:1px solid var(--border); border-radius:1rem; padding:1rem; box-shadow:var(--shadow)}
-    .hero-illus{aspect-ratio:4/3; border-radius:.8rem; background:linear-gradient(135deg, color-mix(in oklab, var(--brand) 30%, transparent), color-mix(in oklab, var(--brand-2) 30%, transparent)); display:grid; place-items:center; font-weight:700; letter-spacing:.5px}
-
-    /* Sections */
-    section{padding:3rem 0}
-    .section-title{font-size:1.8rem; margin-bottom:.5rem}
-    .section-desc{color:var(--muted); margin-bottom:2rem}
-
-    /* About */
-    .about{display:grid; grid-template-columns:1fr 1fr; gap:2rem}
-    .about-card{background:var(--surface); border:1px solid var(--border); border-radius:1rem; padding:1.5rem; box-shadow:var(--shadow)}
-    .chips{display:flex; flex-wrap:wrap; gap:.5rem}
-    .chip{border:1px solid var(--border); padding:.4rem .6rem; border-radius:999px; color:var(--muted); font-weight:600; font-size:.9rem}
-
-    /* Projects */
-    .grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:1.2rem}
-    .card{background:var(--surface); border:1px solid var(--border); border-radius:1rem; overflow:hidden; box-shadow:var(--shadow); display:flex; flex-direction:column}
-    .card img{width:100%; aspect-ratio:16/10; object-fit:cover}
-    .card-body{padding:1rem}
-    .tags{display:flex; flex-wrap:wrap; gap:.4rem; margin:.4rem 0 .6rem}
-    .tag{font-size:.75rem; color:var(--muted); border:1px solid var(--border); padding:.25rem .5rem; border-radius:.5rem}
-    .card-actions{display:flex; gap:.5rem; padding:1rem; padding-top:0; margin-top:auto}
-    .link{display:inline-flex; gap:.4rem; align-items:center; text-decoration:none; font-weight:600; color:var(--text)}
-
-    /* Experience */
-    .timeline{display:grid; gap:1rem}
-    .timeline-item{display:grid; grid-template-columns:120px 1fr; gap:1rem; align-items:start}
-    .badge{background:linear-gradient(135deg, var(--brand), var(--brand-2)); color:#fff; font-weight:700; padding:.35rem .6rem; border-radius:.5rem; width:max-content}
-    .muted{color:var(--muted)}
-
-    /* Contact */
-    form{display:grid; gap:.8rem}
-    input, textarea{width:100%; padding:.9rem 1rem; border-radius:.8rem; border:1px solid var(--border); background:var(--surface); color:var(--text)}
-    textarea{min-height:140px; resize:vertical}
-
-    /* Footer */
-    footer{border-top:1px solid var(--border); padding:2rem 0; color:var(--muted)}
-
-    /* Utilities */
-    .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0}
-
-    /* Responsive */
-    @media (max-width: 980px){
-      .hero-grid{grid-template-columns:1fr}
-      .about{grid-template-columns:1fr}
-      .grid{grid-template-columns:repeat(2, 1fr)}
-      .timeline-item{grid-template-columns:1fr}
+    nav a {
+      color:#fff;
+      margin:0 15px;
+      text-decoration:none;
+      font-weight:500;
+      transition:color 0.3s;
     }
-    @media (max-width: 640px){
-      nav ul{display:none}
-      .hamburger{display:inline-flex; border:1px solid var(--border); background:var(--surface); width:40px; height:40px; border-radius:10px; align-items:center; justify-content:center}
-      .grid{grid-template-columns:1fr}
+
+    nav a:hover { color:#38bdf8; }
+
+    section {
+      max-width:1000px;
+      margin:3rem auto;
+      padding:0 1.5rem;
     }
+
+    section h2 {
+      font-size:2rem;
+      text-align:center;
+      margin-bottom:1.5rem;
+      color:#0f172a;
+    }
+
+    .about, .skills, .certs, .projects {
+      background:#fff;
+      padding:2rem;
+      border-radius:12px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.05);
+      margin-bottom:2rem;
+    }
+
+    .skills-list, .cert-list {
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      justify-content:center;
+    }
+
+    .chip {
+      background:#e0f2fe;
+      color:#0369a1;
+      padding:8px 14px;
+      border-radius:20px;
+      font-size:0.95rem;
+      font-weight:500;
+    }
+
+    .project {
+      border-left:4px solid #2563eb;
+      padding-left:1rem;
+      margin-bottom:1.5rem;
+    }
+
+    .project h3 { margin-bottom:0.4rem; color:#2563eb; }
+
+    footer {
+      background:#1e293b;
+      color:#cbd5e1;
+      text-align:center;
+      padding:1.5rem;
+      margin-top:2rem;
+    }
+
+    footer a {
+      color:#38bdf8;
+      text-decoration:none;
+    }
+
+    .btn {
+      display:inline-block;
+      margin-top:1rem;
+      background:#2563eb;
+      color:#fff;
+      padding:12px 24px;
+      border-radius:8px;
+      text-decoration:none;
+      font-size:1rem;
+      transition:background 0.3s;
+    }
+
+    .btn:hover { background:#1d4ed8; }
   </style>
 </head>
 <body>
+
+  <!-- Header -->
   <header>
-    <div class="container nav" role="navigation" aria-label="Primary">
-      <a href="#home" class="logo" aria-label="Go to home">
-        <span class="logo-badge" aria-hidden="true"></span>
-        <span>Your Name</span>
-      </a>
-      <nav>
-        <button class="hamburger" aria-label="Open menu" id="menuBtn">☰</button>
-        <ul id="menu">
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-      <div class="actions">
-        <a class="btn" href="/YourName_Resume.pdf" download>Resume</a>
-        <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
-      </div>
-    </div>
+    <h1>Vaibhav Jadhav</h1>
+    <p>DevOps Enthusiast | Linux • Docker • AWS • Kubernetes • Jenkins</p>
   </header>
 
-  <main id="home" class="container">
-    <!-- Hero -->
-    <section class="hero">
-      <div class="hero-grid">
-        <div>
-          <span class="eyebrow">Frontend Developer • UI Designer</span>
-          <h1>Hi, I’m <span style="background:linear-gradient(135deg,var(--brand),var(--brand-2)); -webkit-background-clip:text; background-clip:text; color:transparent">Vaibhav Jadhav</span>. I build fast, accessible, and delightful web apps.</h1>
-          <p class="lead">I specialize in modern React/Next.js frontends, design systems, and high-performing product experiences. I care deeply about UX, a11y, and clean code.</p>
-          <div class="cta">
-            <a class="btn btn-primary" href="#projects">See Projects</a>
-            <a class="btn" href="#contact">Contact Me</a>
-          </div>
-        </div>
-        <div class="hero-card">
-          <div class="hero-illus">Portfolio Preview</div>
-          <ul class="muted" style="margin:.8rem 0 0 0; padding-left:1rem">
-            <li>Core stack: TypeScript, React, Next.js, Tailwind</li>
-            <li>Tooling: Vite, Vitest, Playwright, Storybook</li>
-            <li>Cloud: Vercel, Netlify, Firebase</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <!-- Navigation -->
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-    <!-- Projects -->
-    <section id="projects">
-      <h2 class="section-title">Selected Projects</h2>
-      <p class="section-desc">A few things I’ve built recently. More on <a class="link" href="#" aria-label="GitHub profile link">GitHub ↗</a></p>
-      <div class="grid" id="projectGrid">
-        <!-- Project 1 -->
-        <article class="card" data-reveal>
-          <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=1200&auto=format&fit=crop" alt="Dashboard UI on laptop" />
-          <div class="card-body">
-            <h3>Analytics Dashboard</h3>
-            <p class="muted">Modular, responsive dashboard with charts, realtime data, and theming.</p>
-            <div class="tags">
-              <span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Recharts</span>
-            </div>
-          </div>
-          <div class="card-actions">
-            <a class="link" href="#">Live ↗</a>
-            <a class="link" href="#">Code ↗</a>
-          </div>
-        </article>
-        <!-- Project 2 -->
-        <article class="card" data-reveal>
-          <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop" alt="Code editor screenshot" />
-          <div class="card-body">
-            <h3>Design System Kit</h3>
-            <p class="muted">Reusable components, tokens, and docs powering multiple products.</p>
-            <div class="tags">
-              <span class="tag">Storybook</span><span class="tag">Tailwind</span><span class="tag">Figma</span>
-            </div>
-          </div>
-          <div class="card-actions">
-            <a class="link" href="#">Docs ↗</a>
-            <a class="link" href="#">Code ↗</a>
-          </div>
-        </article>
-        <!-- Project 3 -->
-        <article class="card" data-reveal>
-          <img src="https://images.unsplash.com/photo-1551292831-023188e78222?q=80&w=1200&auto=format&fit=crop" alt="E‑commerce storefront" />
-          <div class="card-body">
-            <h3>Commerce Starter</h3>
-            <p class="muted">Headless storefront with CMS, payments, and Lighthouse 95+ scores.</p>
-            <div class="tags">
-              <span class="tag">Next.js</span><span class="tag">Stripe</span><span class="tag">CMS</span>
-            </div>
-          </div>
-          <div class="card-actions">
-            <a class="link" href="#">Live ↗</a>
-            <a class="link" href="#">Code ↗</a>
-          </div>
-        </article>
-      </div>
-    </section>
+  <!-- About -->
+  <section id="about" class="about">
+    <h2>About Me</h2>
+    <p>
+      Hello! I'm <strong>Vaibhav Jadhav</strong>, a DevOps enthusiast with a strong academic background and hands-on 
+      experience in automation and cloud technologies. I completed my Diploma in Computer Engineering from 
+      <strong>MGM Polytechnic, Aurangabad</strong> with <strong>85.40%</strong> and a B.Tech in Computer Science from 
+      <strong>MIT College, Aurangabad</strong> with <strong>8.0 CGPA</strong>.  
+    </p>
+    <p>
+      My focus is on building efficient CI/CD pipelines, containerized deployments, and leveraging cloud 
+      platforms to streamline development and operations.
+    </p>
+  </section>
 
-    <!-- About & Skills -->
-    <section id="about">
-      <div class="about">
-        <div class="about-card">
-          <h2 class="section-title">About</h2>
-          <p class="section-desc">I turn ideas into polished products. Previously at <strong>Acme</strong> and <strong>Pixel Co.</strong> My focus is building delightful UX with robust engineering under the hood.</p>
-          <div class="chips" aria-label="Skills">
-            <span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">TypeScript</span><span class="chip">React</span><span class="chip">Next.js</span><span class="chip">Node.js</span><span class="chip">Tailwind</span><span class="chip">Figma</span><span class="chip">Testing</span>
-          </div>
-        </div>
-        <div class="about-card">
-          <h2 class="section-title">What I value</h2>
-          <ul class="muted" style="line-height:1.9">
-            <li><strong>Accessibility first</strong> — keyboard support, color contrast, semantics.</li>
-            <li><strong>Performance</strong> — ship less JS, optimize images, measure with RUM.</li>
-            <li><strong>Maintainability</strong> — readable code, typed APIs, CI checks.</li>
-            <li><strong>Design craft</strong> — thoughtful spacing, hierarchy, and motion.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Experience -->
-    <section id="experience">
-      <h2 class="section-title">Experience</h2>
-      <p class="section-desc">A snapshot of my recent roles.</p>
-      <div class="timeline">
-        <div class="about-card timeline-item">
-          <div>
-            <span class="badge">2023 — Present</span>
-            <div class="muted">Remote</div>
-          </div>
-          <div>
-            <h3>Senior Frontend Engineer · Nova Labs</h3>
-            <p class="muted">Led redesign of the core app, built a component library, and cut bundle size by 42%.</p>
-          </div>
-        </div>
-        <div class="about-card timeline-item">
-          <div>
-            <span class="badge">2021 — 2023</span>
-            <div class="muted">Bangalore</div>
-          </div>
-          <div>
-            <h3>Frontend Engineer · Acme Corp</h3>
-            <p class="muted">Shipped features to millions, introduced visual regression tests, improved a11y scores.</p>
-          </div>
-        </div>
-        <div class="about-card timeline-item">
-          <div>
-            <span class="badge">2019 — 2021</span>
-            <div class="muted">Mumbai</div>
-          </div>
-          <div>
-            <h3>UI Designer · Pixel Co.</h3>
-            <p class="muted">Designed cross‑platform design system adopted by 4 product teams.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact">
-      <h2 class="section-title">Let’s build something great</h2>
-      <p class="section-desc">Have a question or a project in mind? I’d love to hear from you.</p>
-      <form class="about-card" id="contactForm" aria-labelledby="contact-heading">
-        <label class="sr-only" for="name">Name</label>
-        <input id="name" name="name" placeholder="Your name" required />
-        <label class="sr-only" for="email">Email</label>
-        <input id="email" name="email" type="email" placeholder="you@example.com" required />
-        <label class="sr-only" for="message">Message</label>
-        <textarea id="message" name="message" placeholder="Tell me a bit about your project…" required></textarea>
-        <div style="display:flex; gap:.6rem; align-items:center; flex-wrap:wrap">
-          <button type="submit" class="btn btn-primary">Send Message</button>
-          <span id="formMsg" class="muted" role="status" aria-live="polite"></span>
-        </div>
-      </form>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container" style="display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap">
-      <div>© <span id="year"></span> Your Name. All rights reserved.</div>
-      <div style="display:flex; gap:.8rem">
-        <a class="link" href="#" aria-label="GitHub">GitHub ↗</a>
-        <a class="link" href="#" aria-label="LinkedIn">LinkedIn ↗</a>
-        <a class="link" href="mailto:hello@example.com" aria-label="Email">Email ↗</a>
-      </div>
+  <!-- Skills -->
+  <section id="skills" class="skills">
+    <h2>Skills</h2>
+    <div class="skills-list">
+      <span class="chip">Linux</span>
+      <span class="chip">Docker</span>
+      <span class="chip">AWS</span>
+      <span class="chip">Kubernetes</span>
+      <span class="chip">Jenkins</span>
+      <span class="chip">CI/CD</span>
+      <span class="chip">Git & GitHub</span>
     </div>
+  </section>
+
+  <!-- Certifications -->
+  <section id="certifications" class="certs">
+    <h2>Certifications</h2>
+    <div class="cert-list">
+      <span class="chip">RHCSA</span>
+      <span class="chip">DO188</span>
+      <span class="chip">CLA</span>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="projects">
+    <h2>Projects</h2>
+    <div class="project">
+      <h3>1. Portfolio Website (CI/CD with Jenkins & Docker)</h3>
+      <p>
+        Built and deployed my personal portfolio website inside a Docker container. Integrated with Jenkins 
+        for automated CI/CD so that any changes pushed to GitHub are automatically deployed to the live site 
+        without manual intervention.
+      </p>
+    </div>
+    <div class="project">
+      <h3>2. Horizontal Pod Autoscaler (HPA) Project</h3>
+      <p>
+        Implemented Kubernetes Horizontal Pod Autoscaler (HPA) to automatically scale application pods 
+        based on CPU utilization, ensuring high availability and resource optimization.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="about">
+    <h2>Contact Me</h2>
+    <p>Feel free to reach out for collaboration or opportunities.</p>
+    <p><strong>Email:</strong> <a href="mailto:vaibhavjadhav@example.com">vaibhavjadhav@example.com</a></p>
+    <a href="mailto:vaibhavjadhav@example.com" class="btn">Get in Touch</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Vaibhav Jadhav | Designed with ❤️ for the DevOps journey</p>
   </footer>
 
-  <!-- JSON-LD Schema -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Your Name",
-    "url": "https://yourdomain.com",
-    "jobTitle": "Frontend Developer",
-    "sameAs": ["https://github.com/yourhandle", "https://www.linkedin.com/in/yourhandle/"]
-  }
-  </script>
-
-  <script>
-    // Active nav on scroll & mobile menu
-    const links = [...document.querySelectorAll('nav a[href^="#"]')];
-    const menu = document.getElementById('menu');
-    const menuBtn = document.getElementById('menuBtn');
-    menuBtn?.addEventListener('click', () => {
-      const open = getComputedStyle(menu).display !== 'none';
-      menu.style.display = open ? 'none' : 'flex';
-      menu.style.flexDirection = 'column';
-      menu.style.gap = '.8rem';
-      menu.style.position = 'absolute';
-      menu.style.right = '1rem';
-      menu.style.top = '64px';
-      menu.style.background = getComputedStyle(document.body).getPropertyValue('--surface');
-      menu.style.border = '1px solid ' + getComputedStyle(document.body).getPropertyValue('--border');
-      menu.style.padding = '.8rem';
-      menu.style.borderRadius = '.8rem';
-      menu.style.boxShadow = getComputedStyle(document.body).getPropertyValue('--shadow');
-    });
-
-    const observer = new IntersectionObserver((entries)=>{
-      entries.forEach(entry=>{
-        const id = entry.target.getAttribute('id');
-        if(id && entry.isIntersecting){
-          links.forEach(a=>a.classList.toggle('active', a.getAttribute('href') === `#${id}`))
-        }
-      })
-    }, {rootMargin: '-50% 0px -50% 0px', threshold: 0});
-    ['projects','about','experience','contact'].forEach(id=>{
-      const el = document.getElementById(id);
-      if(el) observer.observe(el);
-    });
-
-    // Theme toggle with localStorage
-    const root = document.documentElement;
-    const themeToggle = document.getElementById('themeToggle');
-    const saved = localStorage.getItem('theme');
-    if(saved) {
-      root.setAttribute('data-theme', saved);
-      themeToggle.textContent = saved === 'dark' ? '☀️' : '🌙';
-    }
-    themeToggle?.addEventListener('click', ()=>{
-      const isDark = root.getAttribute('data-theme') === 'dark';
-      root.setAttribute('data-theme', isDark ? 'light' : 'dark');
-      localStorage.setItem('theme', isDark ? 'light' : 'dark');
-      themeToggle.textContent = isDark ? '🌙' : '☀️';
-    });
-
-    // Contact form (no backend) – simple mailto fallback
-    const form = document.getElementById('contactForm');
-    const formMsg = document.getElementById('formMsg');
-    form?.addEventListener('submit', (e)=>{
-      e.preventDefault();
-      const data = new FormData(form);
-      const name = data.get('name');
-      const email = data.get('email');
-      const message = data.get('message');
-      const mailto = `mailto:hello@example.com?subject=${encodeURIComponent('Portfolio inquiry from ' + name)}&body=${encodeURIComponent(message + '\n\nFrom: ' + name + ' <' + email + '>')}`;
-      window.location.href = mailto;
-      formMsg.textContent = 'Opening your email client…';
-    });
-
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Reveal on scroll
-    const revealables = document.querySelectorAll('[data-reveal]');
-    const rev = new IntersectionObserver((entries)=>{
-      for(const e of entries){
-        if(e.isIntersecting){
-          e.target.animate([
-            {opacity:0, transform:'translateY(6px)'},
-            {opacity:1, transform:'translateY(0)'}
-          ], {duration:500, easing:'ease-out', fill:'both'});
-          rev.unobserve(e.target);
-        }
-      }
-    }, {threshold: .15});
-    revealables.forEach(el=>rev.observe(el));
-  </script>
 </body>
 </html>
